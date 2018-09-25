@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cpnp_selenium", "cpnp_selenium\cpnp_selenium.csproj", "{142078D3-A7DF-4B6A-8A43-A9A263C7757D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{142078D3-A7DF-4B6A-8A43-A9A263C7757D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142078D3-A7DF-4B6A-8A43-A9A263C7757D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142078D3-A7DF-4B6A-8A43-A9A263C7757D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142078D3-A7DF-4B6A-8A43-A9A263C7757D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A823044E-6A70-45D6-AD4C-F6356DA81751}
+	EndGlobalSection
+EndGlobal
