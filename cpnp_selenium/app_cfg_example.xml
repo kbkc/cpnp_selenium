@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DBS>
+  <data_file_name>productList.html</data_file_name>
+  <sheet_name>productList</sheet_name>
+  <cpnp_start_page>https://webgate.ec.europa.eu/cpnp/main/?</cpnp_start_page>
+  <login_data>
+    <url>https://webgate.ec.europa.eu/cas/login</url>
+    <login>info@reformnails.com</login>
+    <pw>password here</pw>
+  </login_data>
+</DBS>
