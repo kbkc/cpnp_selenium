@@ -8,18 +8,33 @@ using System.Reflection;
 using NHibernate;
 using System.Linq;
 using NHibernate.SqlCommand;
+using System.Windows.Forms;
 
 
 namespace cpnp_selenium
 {
     class Program
     {
-        static void Main(string[] args)
-        {         
+        public static IWebDriver brw = null;
+
+
+        [STAThread]
+        static void Main()// string[] args
+        {
+            //    Application.EnableVisualStyles();
+
+            //  Application.Run();
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+
+
             inidata.ProcHtmlTable();
 
             //   foreach (List<string> ss in inidata.htable)Console.WriteLine(string.Join(",", ss.ToArray()));
             //   run_browser();
+            /*
             IWebDriver brw = null;
 
 
@@ -80,6 +95,8 @@ namespace cpnp_selenium
             } while (c.Key != ConsoleKey.Escape);
             if (brw != null) { brw.Quit(); brw = null; }
 
+            */
+
         }
 
 
@@ -126,7 +143,7 @@ namespace cpnp_selenium
         /// <summary>
         /// 
         /// </summary>
-        static void db_prod1s_proc()
+        public static void db_prod1s_proc()
         {
             CpnpArt CpnpArtAlias = null;
             CpnpProd1s CpnpProd1SAlias = null;
@@ -277,6 +294,21 @@ namespace cpnp_selenium
         static void logout_site(IWebDriver b)
         {
             b.Navigate().GoToUrl(inidata.ldata.url);
+        }
+
+        public static void Login2cpnp()
+        {
+            if (brw == null)
+            {
+                brw = new FirefoxDriver();
+                cpnp_rules.login_site(brw);
+            }
+            else {
+                
+                // Form1.
+                // Form1. tbOut.AppendText("Browser is opened. "); 
+            }
+
         }
 
 

@@ -6,7 +6,6 @@ using cpnp_selenium;
 
 namespace cpnp_selenium {
     
-    
     public class CpnpArtMap : ClassMap<CpnpArt> {
         
         public CpnpArtMap() {
