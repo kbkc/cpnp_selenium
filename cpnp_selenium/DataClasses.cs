@@ -23,9 +23,6 @@ namespace cpnp_selenium
         public static List<List<string>> htable = new List<List<string>>();
         public static IList<CpnpQueries> qu_List = null;
 
-
-
-
         public static List<ProdData> pdl = new List<ProdData>();
 
 
@@ -101,14 +98,10 @@ namespace cpnp_selenium
         public static void ProcHtmlTable()
         {
             htable = HtmlParse.GetTable(data_file_name);
-           
-
-        }
+         }
 
     }
-    
-
-
+ 
     public class LoginData
     {
         public string url { get; set; }

@@ -1,6 +1,4 @@
-﻿// 
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -15,28 +13,24 @@ namespace cpnp_selenium
 {
     class Program
     {
-        public static IWebDriver brw = null;
-
+      //  public static IWebDriver brw = null;
+        
 
         [STAThread]
-        static void Main()// string[] args
+        static void Main()
         {
-            //    Application.EnableVisualStyles();
-
-            //  Application.Run();
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
 
 
             inidata.ProcHtmlTable();
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());       
 
             //   foreach (List<string> ss in inidata.htable)Console.WriteLine(string.Join(",", ss.ToArray()));
             //   run_browser();
             /*
             IWebDriver brw = null;
-
 
             ConsoleKeyInfo c;
             do
@@ -60,7 +54,7 @@ namespace cpnp_selenium
                     case '2':
                         {
                             // goto att
-                            walk_site(brw);
+                            open_product(brw);
                             break;
                         }
                     case '3':
@@ -94,51 +88,44 @@ namespace cpnp_selenium
                 //Console.ReadLine();
             } while (c.Key != ConsoleKey.Escape);
             if (brw != null) { brw.Quit(); brw = null; }
-
             */
-
         }
 
 
 
-        static int run_menu()
-        {
-
-            Console.WriteLine("1 - Login to cpnp");
-            Console.WriteLine("2 - open product");
-            Console.WriteLine("3 - add url to cpnp table");
-            Console.WriteLine("4 - prod1s proc");
-            Console.WriteLine("9 - close browser");
-            Console.WriteLine("c - clear csreen");
-            Console.WriteLine("ESC - quit");
-            return 1; // Console.Read();
-        }
+        //static int run_menu()
+        //{
+        //    Console.WriteLine("1 - Login to cpnp");
+        //    Console.WriteLine("2 - open product");
+        //    Console.WriteLine("3 - add url to cpnp table");
+        //    Console.WriteLine("4 - prod1s proc");
+        //    Console.WriteLine("9 - close browser");
+        //    Console.WriteLine("c - clear csreen");
+        //    Console.WriteLine("ESC - quit");
+        //    return 1; // Console.Read();
+        //}
 
         /// <summary>
         ///  Testing method
         /// </summary>
-        static void test_map()
-        {
+        //static void test_map()
+        //{
+        //    //// example 1. list selection
+        //    //ISession session = Models.NHibernateHelper.OpenSession();
+        //    //var clients = session.QueryOver<CpnpProd1s>().Where(x => x.cpnp_exist == "1").List();
+        //    //foreach (var ss in clients) { Console.WriteLine("{0}\t{1}", ss.art,ss.sname_1s); }
 
-            //// example 1. list selection
-            //ISession session = Models.NHibernateHelper.OpenSession();
-            //var clients = session.QueryOver<CpnpProd1s>().Where(x => x.cpnp_exist == "1").List();
-            //foreach (var ss in clients) { Console.WriteLine("{0}\t{1}", ss.art,ss.sname_1s); }
+        //    //  foreach (var ss in inidata.qu_List) { Console.WriteLine("{0}\t{1}", ss.id, ss.squery); }
 
-
-
-            //  foreach (var ss in inidata.qu_List) { Console.WriteLine("{0}\t{1}", ss.id, ss.squery); }
-
-
-            //ISession session = Models.NHibernateHelper.OpenSession();
-            //using (var tx = session.BeginTransaction())
-            //{
-            //    var entity = session.Get<CpnpProd1s>();
-            //    entity.cpnp_exist = "new value";
-            //    entity.cpnp_to_add = "new value";
-            //    tx.Commit();
-            //}
-        }
+        //    //ISession session = Models.NHibernateHelper.OpenSession();
+        //    //using (var tx = session.BeginTransaction())
+        //    //{
+        //    //    var entity = session.Get<CpnpProd1s>();
+        //    //    entity.cpnp_exist = "new value";
+        //    //    entity.cpnp_to_add = "new value";
+        //    //    tx.Commit();
+        //    //}
+        //}
 
         /// <summary>
         /// 
@@ -161,11 +148,7 @@ namespace cpnp_selenium
             var tt2 = session
             .QueryOver<CpnpProd1s>(() => CpnpProd1SAlias)
               .List();
-
-
-
             Console.WriteLine("total records 1: {0}\ntotal records 2: {1}", tt.Count().ToString(), tt2.Count().ToString());
-
 
             //   foreach (var ss in inidata.qu_List) { Console.WriteLine("{0}\n{1}", ss.id, ss.squery); }
 
@@ -175,15 +158,11 @@ namespace cpnp_selenium
             //   // Console.WriteLine("{0}\t", ss[1]);
             //}
 
-
-
-
             // example. SQL query execute
             //ITransaction tx = session.BeginTransaction();
             //var updatedEntities = session.CreateSQLQuery(inidata.qu_List[1].squery).ExecuteUpdate();           
             //tx.Commit();
             //session.Close();
-
         }
 
 
@@ -191,7 +170,6 @@ namespace cpnp_selenium
         // join samples
         static void db_prod1s_proc_tmp()
         {
-
             CpnpArt CpnpArtAlias = null;
             CpnpProd1s CpnpProd1SAlias = null;
             ISession session = Models.NHibernateHelper.OpenSession();
@@ -221,7 +199,6 @@ namespace cpnp_selenium
                     .List<object[]>();
             */
 
-
              //   foreach (var ss in tt) { Console.WriteLine("{0}\t{1}\t{2}", ss.art, ss.cpnp_exist, ss.sname_1s); }
              //   System.IO.File.WriteAllLines(@"d:\\aaa555.txt", tt.Select(ss => String.Format("{0}\t{1}\t{2}", ss.art, ss.cpnp_exist, ss.sname_1s)).ToArray());
                
@@ -236,80 +213,84 @@ namespace cpnp_selenium
                 //    //                     .JoinQueryOver(master => master.imagen)
                 //    //                     .Where(imagen => imagen.linea.Id == 5)
                 //    //                     .List();
-
                 //}
-
             //}
             //catch (Exception e) { Console.WriteLine(e.ToString()); }
         }
 
-        static void db_add_records_from_htable_to_cpnp()
-        {
-            // insert data from htable class to table 'cpnp'
-            using (ISession session = Models.NHibernateHelper.OpenSession())
-            using (ITransaction tx = session.BeginTransaction())
-            {
-                //  var testtable = session.QueryOver<Cpnp>().List();
 
-                //  foreach (var ss in testtable){   Console.WriteLine("{0}\t{1}", ss.cpnpVal, ss.sname); }
-                //foreach (List<string> ss in inidata.htable.Skip(1)){  Console.WriteLine("{0}\t{1}\t{2}", ss[0], ss[1], ss[2]);}
-                foreach (List<string> ss in inidata.htable.Skip(1))
-                {
-                    Cpnp cc = new Cpnp();
-                    cc.cpnpVal = ss[0];
-                    cc.sname = ss[1];
-                    cc.url = ss[2];
-                    session.Save(cc);
-                }
-                tx.Commit();
-            }
-        }
+        // sent to ProcClasses
+        //static void db_add_records_from_htable_to_cpnp()
+        //{
+        //    // insert data from htable class to table 'cpnp'
+        //    using (ISession session = Models.NHibernateHelper.OpenSession())
+        //    using (ITransaction tx = session.BeginTransaction())
+        //    {
+        //        //  var testtable = session.QueryOver<Cpnp>().List();
 
-
-
-        static void walk_site(IWebDriver browser)
-        {
-            int i = 0;
-            bool isColumnName = true;
-            string sstr = "2288818";  //ReformA Gelpolish Tenerife BEF28D26D853D0CDC564821B9BE2B8D8 2288818
-
-            foreach (List<string> ss in inidata.htable)
-            {
-                if (isColumnName) { isColumnName = false; continue; }
-                //Console.WriteLine(string.Join(",", ss.ToArray()));
-                if (ss.Contains(sstr))
-                {
-                    Console.WriteLine(ss[2]);
-                    cpnp_rules.open_product_page(browser, ss[2]);
-                    break;
-                }
-             // if (++i > 2) break;
-            }
-
-        }
+        //        //  foreach (var ss in testtable){   Console.WriteLine("{0}\t{1}", ss.cpnpVal, ss.sname); }
+        //        //foreach (List<string> ss in inidata.htable.Skip(1)){  Console.WriteLine("{0}\t{1}\t{2}", ss[0], ss[1], ss[2]);}
+        //        foreach (List<string> ss in inidata.htable.Skip(1))
+        //        {
+        //            Cpnp cc = new Cpnp();
+        //            cc.cpnpVal = ss[0];
+        //            cc.sname = ss[1];
+        //            cc.url = ss[2];
+        //            session.Save(cc);
+        //        }
+        //        tx.Commit();
+        //    }
+        //}
 
 
+        // sent to ProcClasses
+        //public static string open_product(IWebDriver browser, string cpnp_num)
+        //{
+        //    int i = 0;
+        //    bool isColumnName = true;
+        //  // string cpnp_num = "2288818";  //ReformA Gelpolish Tenerife BEF28D26D853D0CDC564821B9BE2B8D8 2288818
+        //    string log = "\r\n open " + cpnp_num + "\r\n";
+        //    foreach (List<string> ss in inidata.htable)
+        //    {
+        //        log += "\r\n "+ss[2];
+        //        if (isColumnName) { isColumnName = false; continue; }
+        //        //Console.WriteLine(string.Join(",", ss.ToArray()));
+        //        if (ss.Contains(cpnp_num))
+        //        {
+        //            log += "\r\n Bingo! \r\n";
+        //          //  Console.WriteLine(ss[2]);
+        //            cpnp_rules.open_product_page(browser, ss[2]);
+        //            break;
+        //        }
+        //     // if (++i > 2) break;
+        //    }
+        //    return log;
+        //}
 
 
-        static void logout_site(IWebDriver b)
-        {
-            b.Navigate().GoToUrl(inidata.ldata.url);
-        }
 
-        public static void Login2cpnp()
-        {
-            if (brw == null)
-            {
-                brw = new FirefoxDriver();
-                cpnp_rules.login_site(brw);
-            }
-            else {
-                
-                // Form1.
-                // Form1. tbOut.AppendText("Browser is opened. "); 
-            }
+        // sent to ProcClasses
+        //static void logout_from_cpnp(IWebDriver b)
+        //{
+        //    b.Navigate().GoToUrl(inidata.ldata.url);
+        //}
 
-        }
+
+        // sent to ProcClasses
+        //public static string login_to_cpnp()
+        //{
+        //    string s;
+        //    if (brw == null)
+        //    {
+        //        brw = new FirefoxDriver();
+        //        cpnp_rules.login_site(brw);
+        //        s = "\nBrowser is opened";
+        //    }
+        //    else {
+        //        s = "\nClose previous opened browser. ";
+        //    }
+        //    return s;
+        //}
 
 
     }
